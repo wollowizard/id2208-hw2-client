@@ -28,6 +28,7 @@
 <operation name="book2">
 <input wsam:Action="http://pck/bookTicket/book2Request" message="tns:book2"/>
 <output wsam:Action="http://pck/bookTicket/book2Response" message="tns:book2Response"/>
+<fault message="tns:AuthenticationException" name="AuthenticationException" wsam:Action="http://pck/bookTicket/book2/Fault/AuthenticationException"/>
 </operation>
 </portType>
 <binding name="bookTicketPortBinding" type="tns:bookTicket">
@@ -52,6 +53,9 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="AuthenticationException">
+<soap:fault name="AuthenticationException" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="bookTicket">

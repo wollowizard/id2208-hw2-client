@@ -143,7 +143,7 @@ public class AuthenticationPanel extends javax.swing.JPanel {
                         if (!ok) {
                             errorMessage.setText("Authentication failed.");
                         }else{
-                            frame.setContentPane(new ItineraryPanel());
+                            frame.setContentPane(new ItineraryPanel(frame));
                             frame.validate();
                            
                         }

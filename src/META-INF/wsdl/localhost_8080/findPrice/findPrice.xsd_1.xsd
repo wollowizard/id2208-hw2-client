@@ -12,22 +12,11 @@
 
 <xs:complexType name="findPrice">
 <xs:sequence>
-<xs:element name="flights" type="tns:flightsList" minOccurs="0"/>
-<xs:element name="date" type="xs:string" minOccurs="0"/>
-<xs:element name="tokenid" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="flightsList">
-<xs:sequence>
-<xs:element name="list" type="tns:flight" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="flight">
-<xs:sequence>
 <xs:element name="from" type="xs:string" minOccurs="0"/>
 <xs:element name="to" type="xs:string" minOccurs="0"/>
+<xs:element name="flightsId" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="tokenid" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -54,6 +43,13 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="flight">
+<xs:sequence>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="to" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="AuthenticationException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"/>
@@ -62,9 +58,16 @@
 
 <xs:complexType name="findPrice2">
 <xs:sequence>
-<xs:element name="from" type="xs:string" minOccurs="0"/>
-<xs:element name="to" type="xs:string" minOccurs="0"/>
+<xs:element name="flights" type="tns:flightsList" minOccurs="0"/>
 <xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="tokenid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flightsList">
+<xs:sequence>
+<xs:element name="list" type="tns:flight" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
