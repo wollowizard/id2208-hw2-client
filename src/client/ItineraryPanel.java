@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 import pck.AuthenticationException_Exception;
 import pck.Flight;
 import pck.FlightsList;
@@ -19,11 +18,16 @@ import pck.FlightsList;
  */
 public class ItineraryPanel extends javax.swing.JPanel {
 
+    private List<FlightsList> itinerary = null;
+    private ClientFrame frame;
+
     /**
      * Creates new form ItineraryPanel
      */
-    public ItineraryPanel() {
+    public ItineraryPanel(ClientFrame frame) {
         initComponents();
+        this.frame = frame;
+        frame.pack();
     }
 
     /**
@@ -46,6 +50,7 @@ public class ItineraryPanel extends javax.swing.JPanel {
         SearchButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         itineraryList = new javax.swing.JList();
+        selectFlightsButton = new javax.swing.JButton();
 
         jLabel1.setText("Flight Book Service");
 
@@ -80,6 +85,13 @@ public class ItineraryPanel extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(itineraryList);
 
+        selectFlightsButton.setText("Select flights");
+        selectFlightsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectFlightsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +104,7 @@ public class ItineraryPanel extends javax.swing.JPanel {
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(0, 303, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -107,8 +119,10 @@ public class ItineraryPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(selectFlightsButton)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,7 +143,9 @@ public class ItineraryPanel extends javax.swing.JPanel {
                     .addComponent(SearchButton))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(selectFlightsButton)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,11 +162,11 @@ public class ItineraryPanel extends javax.swing.JPanel {
             // TODO add your handling code here:
             String from = departureTextField.getText();
             String to = destinationTextField.getText();
-            List<FlightsList> itinerary = Controller.getItinerary(from, to, Controller.tokenId);
+            itinerary = Controller.getItinerary(from, to, Controller.tokenId);
             DefaultListModel model = new DefaultListModel();
             itineraryList.setModel(model);
             for (FlightsList f : itinerary) {
-                String x ="";
+                String x = "";
                 for (Flight f1 : f.getList()) {
                     x += f1.getFrom() + " - " + f1.getTo() + "   ";
                 }
@@ -161,6 +177,21 @@ public class ItineraryPanel extends javax.swing.JPanel {
             Logger.getLogger(ItineraryPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SearchButtonActionPerformed
+
+    private void selectFlightsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFlightsButtonActionPerformed
+        // TODO add your handling code here:
+        Integer i = itineraryList.getSelectedIndex();
+        if (itinerary != null && i>=0) {
+            
+            FlightsList selected = itinerary.get(i);
+            //frame.setContentPane(new PricePanel(frame, selected));
+            frame.validate();
+            
+            System.out.println(selected.getId());
+        }
+
+
+    }//GEN-LAST:event_selectFlightsButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SearchButton;
     private javax.swing.JTextField departureTextField;
@@ -173,5 +204,6 @@ public class ItineraryPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton selectFlightsButton;
     // End of variables declaration//GEN-END:variables
 }

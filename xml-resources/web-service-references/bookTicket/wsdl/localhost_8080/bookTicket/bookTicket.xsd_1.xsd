@@ -12,9 +12,26 @@
 
 <xs:complexType name="book">
 <xs:sequence>
-<xs:element name="route" type="tns:route" minOccurs="0"/>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="to" type="xs:string" minOccurs="0"/>
+<xs:element name="flightsId" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
 <xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
 <xs:element name="tokenid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ticket" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ticket">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="theroute" type="tns:route" minOccurs="0"/>
+<xs:element name="cardNo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -42,12 +59,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="bookResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="AuthenticationException">
 <xs:sequence>
 <xs:element name="message" type="xs:string" minOccurs="0"/>
@@ -56,24 +67,15 @@
 
 <xs:complexType name="book2">
 <xs:sequence>
-<xs:element name="from" type="xs:string" minOccurs="0"/>
-<xs:element name="to" type="xs:string" minOccurs="0"/>
-<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="route" type="tns:route" minOccurs="0"/>
 <xs:element name="cardNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="tokenid" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="book2Response">
 <xs:sequence>
-<xs:element name="return" type="tns:ticket" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="ticket">
-<xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
-<xs:element name="theroute" type="tns:route" minOccurs="0"/>
-<xs:element name="cardNo" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

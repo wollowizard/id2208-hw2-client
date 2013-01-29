@@ -28,6 +28,7 @@
 <operation name="findPrice2">
 <input wsam:Action="http://pck/findPrice/findPrice2Request" message="tns:findPrice2"/>
 <output wsam:Action="http://pck/findPrice/findPrice2Response" message="tns:findPrice2Response"/>
+<fault message="tns:AuthenticationException" name="AuthenticationException" wsam:Action="http://pck/findPrice/findPrice2/Fault/AuthenticationException"/>
 </operation>
 </portType>
 <binding name="findPricePortBinding" type="tns:findPrice">
@@ -52,6 +53,9 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="AuthenticationException">
+<soap:fault name="AuthenticationException" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="findPrice">

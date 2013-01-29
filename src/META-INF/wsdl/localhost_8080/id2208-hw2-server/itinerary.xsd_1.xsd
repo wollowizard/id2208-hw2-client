@@ -23,6 +23,7 @@
 <xs:complexType name="flightsList">
 <xs:sequence>
 <xs:element name="list" type="tns:flight" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
