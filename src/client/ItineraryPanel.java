@@ -167,6 +167,7 @@ public class ItineraryPanel extends javax.swing.JPanel {
             itineraryList.setModel(model);
             for (FlightsList f : itinerary) {
                 String x = "";
+                
                 for (Flight f1 : f.getList()) {
                     x += f1.getFrom() + " - " + f1.getTo() + "   ";
                 }
