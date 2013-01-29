@@ -4,6 +4,10 @@
  */
 package client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import pck.AuthenticationException_Exception;
+
 /**
  *
  * @author Gerard
