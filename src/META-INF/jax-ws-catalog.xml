@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/id2208-hw2-server/getToken?wsdl" uri="wsdl/localhost_8080/id2208-hw2-server/getToken.wsdl"/>
+    <system systemId="http://localhost:8080/id2208-hw2-server/getToken?xsd=1" uri="wsdl/localhost_8080/id2208-hw2-server/getToken.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/id2208-hw2-server/itinerary?wsdl" uri="wsdl/localhost_8080/id2208-hw2-server/itinerary.wsdl"/>
+    <system systemId="http://localhost:8080/id2208-hw2-server/itinerary?xsd=1" uri="wsdl/localhost_8080/id2208-hw2-server/itinerary.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Issue/Issue?wsdl" uri="wsdl/localhost_8080/Issue/Issue.wsdl"/>
+    <system systemId="http://localhost:8080/Issue/Issue?xsd=1" uri="wsdl/localhost_8080/Issue/Issue.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/bookTicket/bookTicket?wsdl" uri="wsdl/localhost_8080/bookTicket/bookTicket.wsdl"/>
+    <system systemId="http://localhost:8080/bookTicket/bookTicket?xsd=1" uri="wsdl/localhost_8080/bookTicket/bookTicket.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/findPrice/findPrice?wsdl" uri="wsdl/localhost_8080/findPrice/findPrice.wsdl"/>
+    <system systemId="http://localhost:8080/findPrice/findPrice?xsd=1" uri="wsdl/localhost_8080/findPrice/findPrice.xsd_1.xsd"/>
+</catalog>

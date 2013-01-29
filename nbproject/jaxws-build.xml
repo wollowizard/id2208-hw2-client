@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-getToken" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/getToken"/>
+        <property name="wsdl-getToken" location="xml-resources/web-service-references/getToken/wsdl/localhost_8080/id2208-hw2-server/getToken.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/getToken" destdir="${build.generated.dir}/jax-wsCache/getToken" wsdl="${wsdl-getToken}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/id2208-hw2-server/getToken?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-getToken}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/getToken"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/getToken">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-getToken" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/getToken"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/pck"/>
+    </target>
+    <target name="wsimport-client-itinerary" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/itinerary"/>
+        <property name="wsdl-itinerary" location="xml-resources/web-service-references/itinerary/wsdl/localhost_8080/id2208-hw2-server/itinerary.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/itinerary" destdir="${build.generated.dir}/jax-wsCache/itinerary" wsdl="${wsdl-itinerary}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/id2208-hw2-server/itinerary?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-itinerary}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/itinerary"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/itinerary">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-itinerary" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/itinerary"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/pck"/>
+    </target>
+    <target name="wsimport-client-Issue" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Issue"/>
+        <property name="wsdl-Issue" location="xml-resources/web-service-references/Issue/wsdl/localhost_8080/Issue/Issue.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Issue" destdir="${build.generated.dir}/jax-wsCache/Issue" wsdl="${wsdl-Issue}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/Issue/Issue?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-Issue}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Issue"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Issue">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Issue" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Issue"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/pck"/>
+    </target>
+    <target name="wsimport-client-bookTicket" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/bookTicket"/>
+        <property name="wsdl-bookTicket" location="xml-resources/web-service-references/bookTicket/wsdl/localhost_8080/bookTicket/bookTicket.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/bookTicket" destdir="${build.generated.dir}/jax-wsCache/bookTicket" wsdl="${wsdl-bookTicket}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/bookTicket/bookTicket?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-bookTicket}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/bookTicket"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/bookTicket">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-bookTicket" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/bookTicket"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/pck"/>
+    </target>
+    <target name="wsimport-client-findPrice" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/findPrice"/>
+        <property name="wsdl-findPrice" location="xml-resources/web-service-references/findPrice/wsdl/localhost_8080/findPrice/findPrice.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/findPrice" destdir="${build.generated.dir}/jax-wsCache/findPrice" wsdl="${wsdl-findPrice}" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/findPrice/findPrice?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-findPrice}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/findPrice"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/findPrice">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-findPrice" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/findPrice"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/pck"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-getToken, wsimport-client-itinerary, wsimport-client-Issue, wsimport-client-bookTicket, wsimport-client-findPrice"/>
+</project>

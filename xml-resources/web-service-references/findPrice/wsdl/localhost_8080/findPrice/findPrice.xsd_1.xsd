@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://pck/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://pck/">
+
+<xs:element name="AuthenticationException" type="tns:AuthenticationException"/>
+
+<xs:element name="findPrice" type="tns:findPrice"/>
+
+<xs:element name="findPrice2" type="tns:findPrice2"/>
+
+<xs:element name="findPrice2Response" type="tns:findPrice2Response"/>
+
+<xs:element name="findPriceResponse" type="tns:findPriceResponse"/>
+
+<xs:complexType name="findPrice">
+<xs:sequence>
+<xs:element name="flights" type="tns:flightsList" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="tokenid" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flightsList">
+<xs:sequence>
+<xs:element name="list" type="tns:flight" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flight">
+<xs:sequence>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="to" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPriceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:route" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="route">
+<xs:sequence>
+<xs:element name="flightsOfRoute" type="tns:flightInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flightInfo">
+<xs:sequence>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="freeplaces" type="xs:int" minOccurs="0"/>
+<xs:element name="price" type="xs:double" minOccurs="0"/>
+<xs:element name="flight" type="tns:flight" minOccurs="0"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AuthenticationException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPrice2">
+<xs:sequence>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="to" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPrice2Response">
+<xs:sequence>
+<xs:element name="return" type="tns:route" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
