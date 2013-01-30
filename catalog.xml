@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
 <<<<<<< HEAD
-    <system systemId="http://localhost:8080/Issue/Issue?wsdl" uri="xml-resources/web-service-references/Issue/wsdl/localhost_8080/Issue/Issue.wsdl"/>
-    <system systemId="http://localhost:8080/Issue/Issue?xsd=1" uri="xml-resources/web-service-references/Issue/wsdl/localhost_8080/Issue/Issue.xsd_1.xsd"/>
+    
+    
 =======
 
 >>>>>>> branch 'master' of https://github.com/wollowizard/id2208-hw2-client.git
+    
+    
+    
+    
     
     <system systemId="http://localhost:8080/id2208-hw2-server/getToken?wsdl" uri="xml-resources/web-service-references/getToken/wsdl/localhost_8080/id2208-hw2-server/getToken.wsdl"/>
     <system systemId="http://localhost:8080/id2208-hw2-server/getToken?xsd=1" uri="xml-resources/web-service-references/getToken/wsdl/localhost_8080/id2208-hw2-server/getToken.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/id2208-hw2-server/itinerary?wsdl" uri="xml-resources/web-service-references/itinerary/wsdl/localhost_8080/id2208-hw2-server/itinerary.wsdl"/>
     <system systemId="http://localhost:8080/id2208-hw2-server/itinerary?xsd=1" uri="xml-resources/web-service-references/itinerary/wsdl/localhost_8080/id2208-hw2-server/itinerary.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Issue/Issue?wsdl" uri="xml-resources/web-service-references/Issue/wsdl/localhost_8080/Issue/Issue.wsdl"/>
+    <system systemId="http://localhost:8080/Issue/Issue?xsd=1" uri="xml-resources/web-service-references/Issue/wsdl/localhost_8080/Issue/Issue.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/bookTicket/bookTicket?wsdl" uri="xml-resources/web-service-references/bookTicket/wsdl/localhost_8080/bookTicket/bookTicket.wsdl"/>
     <system systemId="http://localhost:8080/bookTicket/bookTicket?xsd=1" uri="xml-resources/web-service-references/bookTicket/wsdl/localhost_8080/bookTicket/bookTicket.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/findPrice/findPrice?wsdl" uri="xml-resources/web-service-references/findPrice/wsdl/localhost_8080/findPrice/findPrice.wsdl"/>

@@ -43,7 +43,7 @@ public class BookPanel extends javax.swing.JPanel {
 
     }
     
-    public String getRouteContent(Route r){
+    public final String getRouteContent(Route r){
         Double price=0.0;
         String content="";
         content+="From: "+r.getFrom()+"  To: "+r.getTo()+"\n";
@@ -74,13 +74,15 @@ public class BookPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        bookTextField = new javax.swing.JTextField();
         ticketButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ticketIdTextField = new javax.swing.JLabel();
         messageLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        bookTextField = new javax.swing.JTextArea();
 
         payButton.setText("Pay");
         payButton.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +110,7 @@ public class BookPanel extends javax.swing.JPanel {
             }
         });
 
-        
+        jLabel1.setText("Issue tickets");
 
         jLabel3.setText("Ticket identificator:");
 
@@ -120,6 +122,10 @@ public class BookPanel extends javax.swing.JPanel {
 
         priceLabel.setText("jLabel7");
 
+        bookTextField.setColumns(20);
+        bookTextField.setRows(5);
+        jScrollPane1.setViewportView(bookTextField);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,7 +133,6 @@ public class BookPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bookTextField)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -149,7 +154,8 @@ public class BookPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(priceLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -159,9 +165,9 @@ public class BookPanel extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addGap(16, 16, 16)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bookTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(priceLabel))
@@ -207,6 +213,7 @@ public class BookPanel extends javax.swing.JPanel {
                 }
             }
         });
+        th.start();
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
@@ -227,13 +234,15 @@ public class BookPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ticketButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField bookTextField;
+    private javax.swing.JTextArea bookTextField;
     private javax.swing.JTextField cardNumberTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JButton payButton;
     private javax.swing.JLabel priceLabel;

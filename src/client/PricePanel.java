@@ -110,7 +110,7 @@ public class PricePanel extends javax.swing.JPanel {
                                         .addGap(9, 9, 9)
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(318, 318, 318)
@@ -168,7 +168,7 @@ public class PricePanel extends javax.swing.JPanel {
             str+="Total price: " + price;
                
             jTextArea1.setText(str);
-            
+            jLabel3.setText(price.toString());
             
         } catch (AuthenticationException_Exception ex) {
             Logger.getLogger(PricePanel.class.getName()).log(Level.SEVERE, null, ex);
