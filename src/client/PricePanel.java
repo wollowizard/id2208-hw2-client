@@ -160,6 +160,7 @@ public class PricePanel extends javax.swing.JPanel {
             Double price = 0.0;
             if (route != null) {
                 List<FlightInfo> flightsOfRoute = route.getFlightsOfRoute();
+                
                 for (FlightInfo f : flightsOfRoute) {
                     str += f.getFlight().getFrom() + " " + f.getFlight().getTo() + " " + f.getDate().getDay() + "/" + f.getDate().getMonth() + "/" + f.getDate().getYear() + " - freeplaces: " + f.getFreeplaces() + " - prices:" + f.getPrice() + "\n";
                     price += f.getPrice();
