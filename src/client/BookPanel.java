@@ -4,6 +4,11 @@
  */
 package client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import pck.AuthenticationException_Exception;
+
 /**
  *
  * @author Gerard
@@ -119,13 +124,25 @@ public class BookPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void payButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payButtonActionPerformed
-        try {
+        
             // TODO add your handling code here:
-            String date = cardNumberTextField.getText();
+            String cardNumber = cardNumberTextField.getText();
+            Thread th = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //final Boolean ok = Controller.getTokenService(username, password);
+                
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        
+                    }
+                });
+            }
+        });
+        th.start();
 
-        } catch (AuthenticationException_Exception ex) {
-            Logger.getLogger(ItineraryPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
     }//GEN-LAST:event_payButtonActionPerformed
 
     private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
