@@ -170,7 +170,6 @@ public class PricePanel extends javax.swing.JPanel {
             jTextArea1.setText(str);
             
             
-
         } catch (AuthenticationException_Exception ex) {
             Logger.getLogger(PricePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -180,7 +179,8 @@ public class PricePanel extends javax.swing.JPanel {
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
-        frame.setContentPane(new BookPanel(frame,route));
+        frame.setContentPane(new BookPanel(frame,route ));
+        frame.validate();
     }//GEN-LAST:event_bookButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

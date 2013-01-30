@@ -4,6 +4,13 @@
  */
 package client;
 
+import java.awt.Desktop;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import pck.FlightInfo;
 import pck.Route;
 import pck.Ticket;
 
@@ -12,9 +19,11 @@ import pck.Ticket;
  * @author Gerard
  */
 public class TicketPanel extends javax.swing.JPanel {
+
     private Ticket ticket;
     private ClientFrame frame;
-    
+    private static final String TICKETPATH = "ticket.html";
+
     /**
      * Creates new form TicketPanel
      */
@@ -52,12 +61,20 @@ public class TicketPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         ticketTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel6.setText("Issue tickets");
 
         jLabel5.setText("Flight Book Service");
 
         jLabel7.setText("Your tickets:");
+
+        jButton1.setText("Print");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,13 +83,16 @@ public class TicketPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(ticketTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(ticketTextField))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -85,11 +105,49 @@ public class TicketPanel extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ticketTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addComponent(ticketTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // Creates table with 1 row and 2 columns
+        ListToHtmlTransformer tr = new ListToHtmlTransformer();
+        ArrayList< String> listOfReports = new ArrayList<>();
+        listOfReports.add("Report for ticket " + ticket.getId());
+        listOfReports.add("Issued to customer with card  " + ticket.getCardNo());
+        Route r = ticket.getTheroute();
+        listOfReports.add("Route details:");
+        listOfReports.add("Route id: " + r.getId());
+        listOfReports.add("Flights: " + r.getId());
+        for (FlightInfo f : r.getFlightsOfRoute()) {
+            listOfReports.add("Date: " + f.getDate() + " from" + f.getFlight().getFrom() + " to" + f.getFlight().getTo());
+        }
+        String rendered = tr.render(listOfReports);
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(TICKETPATH));
+            writer.write(rendered);
+
+        } catch (IOException e) {
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+                File file = new File(TICKETPATH);
+                Desktop.getDesktop().open(file);
+            } catch (IOException e) {
+            }
+        }
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -108,6 +108,8 @@ public class BookPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Issue tickets");
+
         jLabel3.setText("Ticket identificator:");
 
         ticketIdTextField.setText("ticketID");
@@ -221,7 +223,9 @@ public class BookPanel extends javax.swing.JPanel {
             }
         });
 
+                                                
     }//GEN-LAST:event_ticketButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookTextField;
     private javax.swing.JTextField cardNumberTextField;
