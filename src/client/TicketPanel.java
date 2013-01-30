@@ -31,20 +31,20 @@ public class TicketPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         this.ticket = ticket;
-        
+
         //FIll ticket text field
         String content = getTicketContent(ticket);
-        
+
         ticketTextField.setText(content);
         ticketTextField.setEditable(false);
     }
-    
-    private String getTicketContent (Ticket ticket){
-        String content="";
-        content+="Ticket identifier: "+ticket.getId()+"\n";
-        content+="Credit card number: "+ticket.getCardNo()+"\n";
-        content+="Flights id: "+ticket.getTheroute().getFlightsId()+"\n";
-   
+
+    private String getTicketContent(Ticket ticket) {
+        String content = "";
+        content += "Ticket identifier: " + ticket.getId() + "\n";
+        content += "Credit card number: " + ticket.getCardNo() + "\n";
+        content += "Flights id: " + ticket.getTheroute().getFlightsId() + "\n";
+
         return content;
     }
 
@@ -120,34 +120,40 @@ public class TicketPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Creates table with 1 row and 2 columns
-        ListToHtmlTransformer tr = new ListToHtmlTransformer();
-        ArrayList< String> listOfReports = new ArrayList<>();
-        listOfReports.add("Report for ticket " + ticket.getId());
-        listOfReports.add("Issued to customer with card  " + ticket.getCardNo());
-        Route r = ticket.getTheroute();
-        listOfReports.add("Route details:");
-        listOfReports.add("Route id: " + r.getId());
-        listOfReports.add("Flights: " + r.getId());
-        for (FlightInfo f : r.getFlightsOfRoute()) {
-            listOfReports.add("Date: " + f.getDate() + " from" + f.getFlight().getFrom() + " to" + f.getFlight().getTo());
-        }
-        String rendered = tr.render(listOfReports);
-        BufferedWriter writer = null;
-        try {
-            writer = new BufferedWriter(new FileWriter(TICKETPATH));
-            writer.write(rendered);
-
-        } catch (IOException e) {
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ListToHtmlTransformer tr = new ListToHtmlTransformer();
+                ArrayList< String> listOfReports = new ArrayList<>();
+                listOfReports.add("Report for ticket " + ticket.getId());
+                listOfReports.add("Issued to customer with card  " + ticket.getCardNo());
+                Route r = ticket.getTheroute();
+                listOfReports.add("Route details:");
+                listOfReports.add("Route id: " + r.getId());
+                listOfReports.add("Flights: " + r.getId());
+                for (FlightInfo f : r.getFlightsOfRoute()) {
+                    listOfReports.add("Date: " + f.getDate() + " from" + f.getFlight().getFrom() + " to" + f.getFlight().getTo());
                 }
-                File file = new File(TICKETPATH);
-                Desktop.getDesktop().open(file);
-            } catch (IOException e) {
+                String rendered = tr.render(listOfReports);
+                BufferedWriter writer = null;
+                try {
+                    writer = new BufferedWriter(new FileWriter(TICKETPATH));
+                    writer.write(rendered);
+
+                } catch (IOException e) {
+                } finally {
+                    try {
+                        if (writer != null) {
+                            writer.close();
+                        }
+                        File file = new File(TICKETPATH);
+                        Desktop.getDesktop().open(file);
+                    } catch (IOException e) {
+                    }
+                }
             }
-        }
+        }).start();
+
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -160,6 +166,3 @@ public class TicketPanel extends javax.swing.JPanel {
     private javax.swing.JTextArea ticketTextField;
     // End of variables declaration//GEN-END:variables
 }
-
-
-

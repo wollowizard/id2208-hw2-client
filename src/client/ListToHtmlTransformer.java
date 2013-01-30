@@ -31,7 +31,7 @@ public class ListToHtmlTransformer {
 
         html.append( "<head>\n" );
         html.append( "<meta charset='utf-8'>\n" );
-        html.append( "<title>Report of Reports</title>\n" );
+        html.append( "<title>Flight ticket</title>\n" );
         html.append( "</head>\n\n" );
 
         html.append( "<body>\n" );
