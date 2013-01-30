@@ -180,6 +180,7 @@ public class PricePanel extends javax.swing.JPanel {
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
         frame.setContentPane(new BookPanel(frame,route ));
+        frame.validate();
     }//GEN-LAST:event_bookButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -62,6 +62,11 @@ public class BookPanel extends javax.swing.JPanel {
         jLabel5.setText("Flight Book Service");
 
         ticketButton.setText("Tickets");
+        ticketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Issue tickets");
 
@@ -148,6 +153,10 @@ public class BookPanel extends javax.swing.JPanel {
     private void cardNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberTextFieldActionPerformed
+
+    private void ticketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ticketButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookTextField;
