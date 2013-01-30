@@ -6,6 +6,7 @@ package client;
 
 import javax.swing.SwingUtilities;
 import pck.AuthenticationException_Exception;
+import pck.Ticket;
 
 /**
  *
@@ -34,6 +35,12 @@ public class Controller {
         pck.Itinerary_Service service = new pck.Itinerary_Service();
         pck.Itinerary port = service.getItineraryPort();
         return port.getItinerary(from, to, tokenid);
+    }
+
+    public static Ticket book(java.lang.String from, java.lang.String to, java.lang.String flightsId, java.lang.String date, java.lang.String cardNumber, java.lang.String tokenid) throws AuthenticationException_Exception {
+        pck.BookTicket_Service service = new pck.BookTicket_Service();
+        pck.BookTicket port = service.getBookTicketPort();
+        return port.book(from, to, flightsId, date, cardNumber, tokenid);
     }
     
     

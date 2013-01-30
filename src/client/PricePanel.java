@@ -129,13 +129,13 @@ public class PricePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_dateTextFieldActionPerformed
 
     private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
-        try {
+        //try {
             // TODO add your handling code here:
             String date = dateTextField.getText();
             
-        } catch (AuthenticationException_Exception ex) {
-            Logger.getLogger(ItineraryPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //} catch (AuthenticationException_Exception ex) {
+        //    Logger.getLogger(ItineraryPanel.class.getName()).log(Level.SEVERE, null, ex);
+        //}
     }//GEN-LAST:event_checkButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

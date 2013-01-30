@@ -4,17 +4,40 @@
  */
 package client;
 
+import pck.Route;
+
 /**
  *
  * @author Gerard
  */
 public class TicketPanel extends javax.swing.JPanel {
-
+    private String ticketId;
+    private ClientFrame frame;
+    
     /**
      * Creates new form TicketPanel
      */
-    public TicketPanel() {
+    public TicketPanel(ClientFrame frame, String ticketId) {
         initComponents();
+        this.frame = frame;
+        this.ticketId = ticketId;
+        
+        //FIll ticket text field
+        String content = getTicketContent(ticketId);
+        
+        ticketTextField.setText(content);
+        ticketTextField.setEditable(false);
+    }
+    
+    private String getTicketContent (String ticketId){
+        String content="";
+        pck.Ticket ticket = Controller.issueTicket(ticketId, Controller.tokenId);
+        content+="Ticket identifier: "+ticket.getId()+"\n";
+        content+="Credit card number: "+ticket.getCardNo()+"\n";
+        content+="Flights id: "+ticket.getTheroute().getFlightsId()+"\n";
+        pck.Route r = new Route();
+        
+        return content;
     }
 
     /**
@@ -74,3 +97,6 @@ public class TicketPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ticketTextField;
     // End of variables declaration//GEN-END:variables
 }
+
+
+
