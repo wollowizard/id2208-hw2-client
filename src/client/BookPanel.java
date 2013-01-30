@@ -108,7 +108,7 @@ public class BookPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Issue tickets");
+        
 
         jLabel3.setText("Ticket identificator:");
 
