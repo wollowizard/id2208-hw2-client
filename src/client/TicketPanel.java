@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import pck.FlightInfo;
 import pck.Route;
+import pck.Ticket;
 
 /**
  *
@@ -19,13 +20,32 @@ import pck.Route;
  */
 public class TicketPanel extends javax.swing.JPanel {
 
+    private Ticket ticket;
+    private ClientFrame frame;
     private static final String TICKETPATH = "ticket.html";
 
     /**
      * Creates new form TicketPanel
      */
-    public TicketPanel() {
+    public TicketPanel(ClientFrame frame, Ticket ticket) {
         initComponents();
+        this.frame = frame;
+        this.ticket = ticket;
+        
+        //FIll ticket text field
+        String content = getTicketContent(ticket);
+        
+        ticketTextField.setText(content);
+        ticketTextField.setEditable(false);
+    }
+    
+    private String getTicketContent (Ticket ticket){
+        String content="";
+        content+="Ticket identifier: "+ticket.getId()+"\n";
+        content+="Credit card number: "+ticket.getCardNo()+"\n";
+        content+="Flights id: "+ticket.getTheroute().getFlightsId()+"\n";
+   
+        return content;
     }
 
     /**
@@ -134,3 +154,6 @@ public class TicketPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ticketTextField;
     // End of variables declaration//GEN-END:variables
 }
+
+
+

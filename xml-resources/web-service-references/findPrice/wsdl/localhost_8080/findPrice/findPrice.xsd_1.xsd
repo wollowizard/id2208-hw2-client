@@ -29,6 +29,8 @@
 <xs:complexType name="route">
 <xs:sequence>
 <xs:element name="flightsOfRoute" type="tns:flightInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="from" type="xs:string" minOccurs="0"/>
+<xs:element name="to" type="xs:string" minOccurs="0"/>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
