@@ -160,7 +160,7 @@ public class PricePanel extends javax.swing.JPanel {
             Double price = 0.0;
             if (route != null) {
                 List<FlightInfo> flightsOfRoute = route.getFlightsOfRoute();
-                
+
                 for (FlightInfo f : flightsOfRoute) {
                     str += f.getFlight().getFrom() + " " + f.getFlight().getTo() + " " + f.getDate().getDay() + "/" + f.getDate().getMonth() + "/" + f.getDate().getYear() + " - freeplaces: " + f.getFreeplaces() + " - prices:" + f.getPrice() + "\n";
                     price += f.getPrice();
@@ -170,7 +170,7 @@ public class PricePanel extends javax.swing.JPanel {
 
             jTextArea1.setText(str);
             jLabel3.setText(price.toString());
-            
+
         } catch (AuthenticationException_Exception ex) {
             Logger.getLogger(PricePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -180,8 +180,10 @@ public class PricePanel extends javax.swing.JPanel {
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
-        frame.setContentPane(new BookPanel(frame, route));
-        frame.validate();
+        if (route != null && !route.getFlightsOfRoute().isEmpty()) {
+            frame.setContentPane(new BookPanel(frame, route));
+            frame.validate();
+        }
     }//GEN-LAST:event_bookButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookButton;

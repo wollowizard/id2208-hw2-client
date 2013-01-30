@@ -22,7 +22,7 @@ public class BookPanel extends javax.swing.JPanel {
     private ClientFrame frame;
     private Route route;
     private Ticket ticket;
-    
+
     /**
      * Creates new form BookPanel
      */
@@ -30,7 +30,7 @@ public class BookPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         this.route = route;
-       
+
         ticketIdTextField.setVisible(false);
         ticketButton.setEnabled(false);
         messageLabel.setVisible(false);
@@ -42,23 +42,24 @@ public class BookPanel extends javax.swing.JPanel {
         bookTextField.setEditable(false);
 
     }
-    
-    public final String getRouteContent(Route r){
-        Double price=0.0;
-        String content="";
-        content+="From: "+r.getFrom()+"  To: "+r.getTo()+"\n";
-        content+="Date: "+r.getFlightsOfRoute().get(0).getDate().toString()+"\n";
-        content+="Flights details: \n";
-        for(FlightInfo fi : r.getFlightsOfRoute()){
-            content+="Idententifier: "+fi.getId()+"\n";
-            content+="Price: "+fi.getPrice()+"\n";
-            price+=fi.getPrice();
+
+    public final String getRouteContent(Route r) {
+        Double price = 0.0;
+        String content = "";
+        if (r != null && !r.getFlightsOfRoute().isEmpty()){ 
+            content += "From: " + r.getFrom() + "  To: " + r.getTo() + "\n";
+            content += "Date: " + r.getFlightsOfRoute().get(0).getDate().toString() + "\n";
+            content += "Flights details: \n";
+            for (FlightInfo fi : r.getFlightsOfRoute()) {
+                content += "Idententifier: " + fi.getId() + "\n";
+                content += "Price: " + fi.getPrice() + "\n";
+                price += fi.getPrice();
+            }
+            priceLabel.setText(price.toString());
         }
-        priceLabel.setText(price.toString());
         return content;
-        
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -195,10 +196,10 @@ public class BookPanel extends javax.swing.JPanel {
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
-                
-                String date = route.getFlightsOfRoute().get(0).getDate().getDay()+"/"+
-                    route.getFlightsOfRoute().get(0).getDate().getMonth()+"/"+
-                    route.getFlightsOfRoute().get(0).getDate().getYear();
+
+                String date = route.getFlightsOfRoute().get(0).getDate().getDay() + "/"
+                        + route.getFlightsOfRoute().get(0).getDate().getMonth() + "/"
+                        + route.getFlightsOfRoute().get(0).getDate().getYear();
 
                 try {
                     ticket = Controller.book(route.getFrom(), route.getTo(), route.getFlightsId(), date, cardNumber, Controller.tokenId);
@@ -230,9 +231,8 @@ public class BookPanel extends javax.swing.JPanel {
             }
         });
 
-                                                
-    }//GEN-LAST:event_ticketButtonActionPerformed
 
+    }//GEN-LAST:event_ticketButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea bookTextField;
     private javax.swing.JTextField cardNumberTextField;
