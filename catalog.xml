@@ -2,7 +2,10 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
 <<<<<<< HEAD
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> branch 'master' of https://github.com/wollowizard/id2208-hw2-client.git
 =======
 
 >>>>>>> branch 'master' of https://github.com/wollowizard/id2208-hw2-client.git
@@ -10,6 +13,10 @@
     
     
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> branch 'master' of https://github.com/wollowizard/id2208-hw2-client.git
     
     <system systemId="http://localhost:8080/id2208-hw2-server/getToken?wsdl" uri="xml-resources/web-service-references/getToken/wsdl/localhost_8080/id2208-hw2-server/getToken.wsdl"/>
     <system systemId="http://localhost:8080/id2208-hw2-server/getToken?xsd=1" uri="xml-resources/web-service-references/getToken/wsdl/localhost_8080/id2208-hw2-server/getToken.xsd_1.xsd"/>

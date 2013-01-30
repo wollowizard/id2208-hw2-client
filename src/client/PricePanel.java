@@ -21,7 +21,6 @@ public class PricePanel extends javax.swing.JPanel {
     private ClientFrame frame;
     private FlightsList fligthList;
     private Route route;
-   
 
     /**
      * Creates new form PricePanel
@@ -31,7 +30,7 @@ public class PricePanel extends javax.swing.JPanel {
         this.frame = frame;
         this.fligthList = fligthList;
         jTextArea1.setEditable(false);
-        
+
     }
 
     /**
@@ -158,15 +157,16 @@ public class PricePanel extends javax.swing.JPanel {
             String to = fligthList.getList().get(fligthList.getList().size() - 1).getTo();
             route = Controller.findPrice(from, to, fligthList.getId(), date.toString(), Controller.tokenId);
             String str = "";
-            Double price=0.0;
-            List<FlightInfo> flightsOfRoute = route.getFlightsOfRoute();
-            for (FlightInfo f : flightsOfRoute) {
-                str+=f.getFlight().getFrom() + " " + f.getFlight().getTo() + " " + f.getDate().getDay() + "/"+f.getDate().getMonth()+"/"+f.getDate().getYear() + " - freeplaces: " + f.getFreeplaces() + " - prices:" + f.getPrice()+"\n"; 
-                price+=f.getPrice();
+            Double price = 0.0;
+            if (route != null) {
+                List<FlightInfo> flightsOfRoute = route.getFlightsOfRoute();
+                for (FlightInfo f : flightsOfRoute) {
+                    str += f.getFlight().getFrom() + " " + f.getFlight().getTo() + " " + f.getDate().getDay() + "/" + f.getDate().getMonth() + "/" + f.getDate().getYear() + " - freeplaces: " + f.getFreeplaces() + " - prices:" + f.getPrice() + "\n";
+                    price += f.getPrice();
+                }
             }
+            str += "Total price: " + price;
 
-            str+="Total price: " + price;
-               
             jTextArea1.setText(str);
             jLabel3.setText(price.toString());
             
@@ -179,10 +179,9 @@ public class PricePanel extends javax.swing.JPanel {
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
         // TODO add your handling code here:
-        frame.setContentPane(new BookPanel(frame,route ));
+        frame.setContentPane(new BookPanel(frame, route));
         frame.validate();
     }//GEN-LAST:event_bookButtonActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookButton;
     private javax.swing.JButton checkButton;

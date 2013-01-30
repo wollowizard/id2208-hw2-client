@@ -4,36 +4,36 @@
 <xsd:import namespace="http://pck/" schemaLocation="http://localhost:8080/bookTicket/bookTicket?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="book">
-<part name="parameters" element="tns:book"/>
-</message>
-<message name="bookResponse">
-<part name="parameters" element="tns:bookResponse"/>
-</message>
-<message name="AuthenticationException">
-<part name="fault" element="tns:AuthenticationException"/>
-</message>
 <message name="book2">
 <part name="parameters" element="tns:book2"/>
 </message>
 <message name="book2Response">
 <part name="parameters" element="tns:book2Response"/>
 </message>
+<message name="AuthenticationException">
+<part name="fault" element="tns:AuthenticationException"/>
+</message>
+<message name="book">
+<part name="parameters" element="tns:book"/>
+</message>
+<message name="bookResponse">
+<part name="parameters" element="tns:bookResponse"/>
+</message>
 <portType name="bookTicket">
-<operation name="book">
-<input wsam:Action="http://pck/bookTicket/bookRequest" message="tns:book"/>
-<output wsam:Action="http://pck/bookTicket/bookResponse" message="tns:bookResponse"/>
-<fault message="tns:AuthenticationException" name="AuthenticationException" wsam:Action="http://pck/bookTicket/book/Fault/AuthenticationException"/>
-</operation>
 <operation name="book2">
 <input wsam:Action="http://pck/bookTicket/book2Request" message="tns:book2"/>
 <output wsam:Action="http://pck/bookTicket/book2Response" message="tns:book2Response"/>
 <fault message="tns:AuthenticationException" name="AuthenticationException" wsam:Action="http://pck/bookTicket/book2/Fault/AuthenticationException"/>
 </operation>
+<operation name="book">
+<input wsam:Action="http://pck/bookTicket/bookRequest" message="tns:book"/>
+<output wsam:Action="http://pck/bookTicket/bookResponse" message="tns:bookResponse"/>
+<fault message="tns:AuthenticationException" name="AuthenticationException" wsam:Action="http://pck/bookTicket/book/Fault/AuthenticationException"/>
+</operation>
 </portType>
 <binding name="bookTicketPortBinding" type="tns:bookTicket">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="book">
+<operation name="book2">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -45,7 +45,7 @@
 <soap:fault name="AuthenticationException" use="literal"/>
 </fault>
 </operation>
-<operation name="book2">
+<operation name="book">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
