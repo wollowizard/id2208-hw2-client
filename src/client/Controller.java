@@ -6,7 +6,7 @@ package client;
 
 import javax.swing.SwingUtilities;
 import pck.AuthenticationException_Exception;
-import pck.Ticket;
+import pck.Route;
 
 /**
  *
@@ -41,6 +41,15 @@ public class Controller {
         pck.BookTicket_Service service = new pck.BookTicket_Service();
         pck.BookTicket port = service.getBookTicketPort();
         return port.book(from, to, flightsId, date, cardNumber, tokenid);
+    }
+    
+    
+    //should it return an array of routes????????????
+    
+    public static Route findPrice(java.lang.String from, java.lang.String to, java.lang.String flightsId, java.lang.String date, java.lang.String tokenid) throws AuthenticationException_Exception {
+        pck.FindPrice_Service service = new pck.FindPrice_Service();
+        pck.FindPrice port = service.getFindPricePort();
+        return port.findPrice(from, to, flightsId, date, tokenid);
     }
     
     

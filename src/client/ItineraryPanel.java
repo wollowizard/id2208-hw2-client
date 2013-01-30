@@ -64,7 +64,7 @@ public class ItineraryPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Destnation:");
+        jLabel3.setText("Destination:");
 
         destinationTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +185,7 @@ public class ItineraryPanel extends javax.swing.JPanel {
         if (itinerary != null && i>=0) {
             
             FlightsList selected = itinerary.get(i);
-            //frame.setContentPane(new PricePanel(frame, selected));
+            frame.setContentPane(new PricePanel(frame, selected));
             frame.validate();
             
             System.out.println(selected.getId());
