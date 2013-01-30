@@ -7,6 +7,7 @@ package client;
 import javax.swing.SwingUtilities;
 import pck.AuthenticationException_Exception;
 import pck.Route;
+import pck.Ticket;
 
 /**
  *

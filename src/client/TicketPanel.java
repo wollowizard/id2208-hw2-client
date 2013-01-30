@@ -5,38 +5,37 @@
 package client;
 
 import pck.Route;
+import pck.Ticket;
 
 /**
  *
  * @author Gerard
  */
 public class TicketPanel extends javax.swing.JPanel {
-    private String ticketId;
+    private Ticket ticket;
     private ClientFrame frame;
     
     /**
      * Creates new form TicketPanel
      */
-    public TicketPanel(ClientFrame frame, String ticketId) {
+    public TicketPanel(ClientFrame frame, Ticket ticket) {
         initComponents();
         this.frame = frame;
-        this.ticketId = ticketId;
+        this.ticket = ticket;
         
         //FIll ticket text field
-        String content = getTicketContent(ticketId);
+        String content = getTicketContent(ticket);
         
         ticketTextField.setText(content);
         ticketTextField.setEditable(false);
     }
     
-    private String getTicketContent (String ticketId){
+    private String getTicketContent (Ticket ticket){
         String content="";
-        pck.Ticket ticket = Controller.issueTicket(ticketId, Controller.tokenId);
         content+="Ticket identifier: "+ticket.getId()+"\n";
         content+="Credit card number: "+ticket.getCardNo()+"\n";
         content+="Flights id: "+ticket.getTheroute().getFlightsId()+"\n";
-        pck.Route r = new Route();
-        
+   
         return content;
     }
 
