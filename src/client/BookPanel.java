@@ -4,10 +4,7 @@
  */
 package client;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
-import pck.AuthenticationException_Exception;
 
 /**
  *
